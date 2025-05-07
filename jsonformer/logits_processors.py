@@ -61,10 +61,10 @@ class NumberStoppingCriteria(StoppingCriteria):
         return False
 
 class OutputNumbersTokens(LogitsProcessor):
-    def __init__(self, tokenizer: PreTrainedTokenizer, prompt: str):
+    def __init__(self, tokenizer: PreTrainedTokenizer, prompt: str, model: PreTrainedModel):
         self.tokenizer = tokenizer
         self.tokenized_prompt = tokenizer(prompt, return_tensors="pt")
-        vocab_size = len(tokenizer)
+        vocab_size = model.config.vocab_size
         self.allowed_mask = torch.zeros(vocab_size, dtype=torch.bool)
 
         for _, token_id in tokenizer.get_vocab().items():
