@@ -1,4 +1,4 @@
-from transformers import PreTrainedTokenizer, LogitsProcessor, StoppingCriteria
+from transformers import PreTrainedTokenizer, LogitsProcessor, StoppingCriteria, PreTrainedModel
 import torch
 
 class StringStoppingCriteria(StoppingCriteria):
