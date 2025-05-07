@@ -33,7 +33,7 @@ class Jsonformer:
         self.json_schema = json_schema
         self.prompt = prompt
 
-        self.number_logit_processor = OutputNumbersTokens(self.tokenizer, self.prompt)
+        self.number_logit_processor = OutputNumbersTokens(self.tokenizer, self.prompt, self.model)
 
         self.generation_marker = "|GENERATION|"
         self.debug_on = debug
